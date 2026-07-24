@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/AskOpenAi/.idea
+/AskOpenAi/Utilities/__pycache__
+/AskOpenAi/.env
+/ChromaDB
+/MCPWithExaSearch/.idea
+/MCPWithExaSearch/None
+/MCPWithExaSearch/Operators/__pycache__
+*.env
