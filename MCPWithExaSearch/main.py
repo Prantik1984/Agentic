@@ -54,15 +54,15 @@ async def main():
          tools=[calorie_lookup_tool],
      )
 
-     question = input("What do you want to know about nutrition? ")
+    question = input("What do you want to know about nutrition? ")
 
-     result = await Runner.run(
+    result = await Runner.run(
          agent,
          question,
      )
 
-     print("\nAnswer:")
-     print(result.final_output)
+    print("\nAnswer:")
+    print(result.final_output)
 
 
 if __name__=='__main__':
