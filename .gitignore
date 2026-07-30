@@ -11,3 +11,4 @@
 /MCPWithExaSearch/None
 /MCPWithExaSearch/Operators/__pycache__
 *.env
+.idea
