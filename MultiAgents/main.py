@@ -1,5 +1,6 @@
 import asyncio
 from dotenv import load_dotenv
+from agents import Agent, Runner,trace
 import os
 async def main():
    open_ai_key=os.getenv('OPENAI_API_KEY')
@@ -26,7 +27,24 @@ async def main():
        except ValueError:
            print("Enter a valid number")
 
+   instructions = f"""
+       * You are a breakfast advisor. You come up with meal plans for the user based on their preferences.
+       * You also calculate the calories for the meal and its ingredients.
+       * Create {breakfast_choice_count} breakfast plans for the user. For each meal, give a name, the ingredients, and the calories
+       * The calories should be equal or just around the {breakfast_calories_count}
+       * The breakfast plans should include {food_option}
+       """
 
+   with trace("Breakfast planner agent"):
+       nutrition_agent = Agent(
+           name="Breakfast_Planner_Agent",
+           instructions=instructions,
+       )
+
+       query = "Create a breakfast plan"
+
+       result = await Runner.run(nutrition_agent, query)
+       print(result.final_output)
 
 
 if __name__=='__main__':
