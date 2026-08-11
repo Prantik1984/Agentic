@@ -27,8 +27,7 @@ class DBOperator:
             A string containing nutrition information, or an empty string
             when no relevant results are found.
         """
-        print(query)
-        return
+
         results = self.collection.query(
             query_texts=[query],
             n_results=int(os.getenv("query_results_count", "5")),
@@ -45,7 +44,6 @@ class DBOperator:
             if distance > threshold:
                 continue
 
-            print(metadata)
             print(distance)
             food_item = str(metadata.get("food_item", "Unknown")).title()
             calories = metadata.get("calories_per_100g", "Unknown")
